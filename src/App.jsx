@@ -23,15 +23,17 @@ function App() {
     let t = todos.filter(item => {
       return item.id === id
     })
-    setTodos(prevState=>{prevState.filter(mess=>{mess.id!==id})})
-  }
+    setTodo(t[0].todo)
+    const newtodo = todos.filter((item)=> item.id!==id)
+    setTodos(newtodo)
+    
     ref.current.focus();
     saveTols()
   }
   //To delete a saved todo
   const handleDelete = (e, id) => {
-     setTodos(prevState=>{prevState.filter(mess=>{mess.id!==id})})
-    }
+    const newtodo = todos.filter((item)=> item.id!==id)
+    setTodos(newtodo)}
   //To add a new todo
   const handleAdd = () => {
     setTodos([...todos, { id: uuidv4(), todo, isCompleted: false }])
@@ -100,7 +102,8 @@ function App() {
                 </div>
               </li>
             </ul>
-          })}
+          })
+        }
         </div>
       </div>
     </>
